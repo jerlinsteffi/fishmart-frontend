@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -39,4 +42,77 @@ a {
   html {
     color-scheme: dark;
   }
+}
+
+.header-container {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* subtle shadow */
+  background-color: white;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  height : 70px;
+  background-color: white; /* your blue background */
+  color: white;
+  font-family: 'Roboto',Helvetica, sans-serif; /* sharp, simple font */
+  gap:50px;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+  margin: 0;
+  padding-left: 100px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.logo .fish {
+  color: #4ca626; /* green */
+}
+
+.logo .mart {
+  color: black;
+}
+
+
+.location {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.location svg {
+  color: #4ca626;
+  margin-right: 8px;
+  font-size: 18px;
+  width: 26px;
+  height: 26px;
+}
+.location-text{
+  color : black;
+  font-size: 10px;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 50px; /* space between icon-text groups */
+  margin-left: 400px;
+}
+
+.icon-text-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color : black;
+  font-size:13px;
+}
+
+.header-icons span {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;  /* medium weight */
+  font-size: 14px;
+  margin-left: 0;
 }
