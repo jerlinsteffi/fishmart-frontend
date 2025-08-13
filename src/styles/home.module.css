@@ -1,0 +1,98 @@
+.carouselItem {
+    transition: opacity 1s ease-in-out;
+}
+
+.imageWrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.image {
+    height: 250px;
+}
+
+.offerBadge {
+    top: 10px;
+    left: 10px;
+}
+
+.netBadge {
+    color: #fff;
+    background-color: #17a2b8 !important;
+    font-size: 0.75rem !important;
+    font-weight: 400 !important;
+}
+
+.oldPrice {
+    font-size: 0.9rem;
+    color: #6c757d;
+    text-decoration: line-through;
+    margin-right: 0.5rem;
+}
+
+.price {
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.customCard:hover {
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.quantitySelector {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 0.25rem;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    height: 32px;
+}
+
+.quantitySelector .quantityBtn {
+    width: 32px;
+    height: 32px;
+    /* background: none; */
+    background: rgba(0, 0, 0, 0.05);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #000000;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.quantitySelector .quantityBtn:hover {
+    background: color-mix(in srgb, #252223, transparent 90%);
+    color: #000000;
+}
+
+.quantitySelector .quantityInput {
+    width: 50px;
+    height: 32px;
+    text-align: center;
+    border: none;
+    background: none;
+    color: #000000;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.quantitySelector .quantityInput:focus {
+    outline: none;
+}
+
+/* Remove number input arrows */
+.quantitySelector .quantityInput::-webkit-outer-spin-button,
+.quantitySelector .quantityInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.quantitySelector .quantityInput[type=number] {
+    -moz-appearance: textfield;
+}

@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import { DEFAULT_META_DATA } from "@/contants/meta-data";
 import { AppPropsWithLayout } from "@/types/page";
 import { Meta } from "@/libs/ui";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   const metaProps = Component.metadata || DEFAULT_META_DATA;

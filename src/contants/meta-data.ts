@@ -9,3 +9,8 @@ export const HOME_META_DATA = {
   title: "FishMart",
   description: "FishMart",
 };
+
+export const PRODUCT_DETAIL_PAGE = {
+  title: "Product Details",
+  description: "Product Details",
+};
