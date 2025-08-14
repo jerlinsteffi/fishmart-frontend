@@ -3,7 +3,7 @@ import React from "react";
 export const ProfileIcon = ({ width = 25, height = 25 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    fill="#4ca626"
+    fill="#e07844"
     viewBox="0 0 24 24"
     width={width}
     height={height}

@@ -1,5 +1,5 @@
 import { LayoutProps } from "@/types/page";
-import Header from "../ui/Header";
+import Header from "../ui/header/Header";
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (

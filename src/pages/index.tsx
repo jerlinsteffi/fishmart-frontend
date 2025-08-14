@@ -13,6 +13,7 @@ import {
   Row,
 } from "react-bootstrap";
 import styles from "../styles/home.module.css";
+import { useCart } from "@/context/CartContext";
 
 const products = [
   {
@@ -109,32 +110,41 @@ const products = [
 
 const Home: NextPageWithLayout = () => {
   const [quantities, setQuantities] = useState<{ [key: number]: number }>({});
+  const { addToCart, updateQty } = useCart();
 
-  const increment = (id: number) => {
-    setQuantities((prev) => ({
-      ...prev,
-      [id]: (prev[id] || 0) + 1,
-    }));
-  };
-
-  const decrement = (id: number) => {
+  const increment = (product: typeof products[0]) => {
     setQuantities((prev) => {
-      const currentQty = prev[id] || 0;
-      if (currentQty <= 1) {
-        const copy = { ...prev };
-        delete copy[id]; // remove from state if zero or less
-        return copy;
-      }
-      return { ...prev, [id]: currentQty - 1 };
+      const newQty = (prev[product.id] || 1) + 1;
+      updateQty(product.id, newQty);
+      return { ...prev, [product.id]: newQty };
     });
   };
 
-  const handleInputChange = (id: number, value: string) => {
+  const decrement = (product: typeof products[0]) => {
+    setQuantities((prev) => {
+      const currentQty = prev[product.id] || 1;
+      if (currentQty <= 1) {
+        // Remove from cart if quantity goes to 0
+        updateQty(product.id, 0);
+        const copy = { ...prev };
+        delete copy[product.id];
+        return copy;
+      }
+      updateQty(product.id, currentQty - 1);
+      return { ...prev, [product.id]: currentQty - 1 };
+    });
+  };
+
+  const handleInputChange = (product: typeof products[0], value: string) => {
     const numberValue = Math.max(1, Math.min(10, Number(value)));
-    setQuantities((prev) => ({
-      ...prev,
-      [id]: numberValue,
-    }));
+    setQuantities((prev) => ({ ...prev, [product.id]: numberValue }));
+    updateQty(product.id, numberValue);
+  };
+
+  const handleAddToCart = (product: typeof products[0]) => {
+    const qty = 1;
+    setQuantities((prev) => ({ ...prev, [product.id]: qty }));
+    addToCart({ id: product.id, name: product.name, price: product.discountedPrice || product.price }, qty);
   };
 
   return (
@@ -146,14 +156,14 @@ const Home: NextPageWithLayout = () => {
             <img
               className="d-block w-100"
               src="https://freshma-web-bucket.s3.ap-south-1.amazonaws.com/freshma/media/banners/web/85b4db20-b3f1-45d9-aea7-e1a24df2c388.jpg"
-              alt="Second slide"
+              alt="Banner 1"
             />
           </Carousel.Item>
           <Carousel.Item>
             <img
               className="d-block w-100"
               src="https://freshma-web-bucket.s3.ap-south-1.amazonaws.com/freshma/media/banners/web/17282acb-d274-4090-b517-700280f2cf3b.jpg"
-              alt="First slide"
+              alt="Banner 2"
             />
           </Carousel.Item>
         </Carousel>
@@ -166,9 +176,7 @@ const Home: NextPageWithLayout = () => {
             const quantity = quantities[product.id] || 0;
             return (
               <Col key={product.id} xs={12} md={4} className="mb-4">
-                <Card
-                  className={`h-100 shadow-sm border-0 bg-white ${styles.customCard}`}
-                >
+                <Card className={`h-100 shadow-sm border-0 bg-white ${styles.customCard}`}>
                   <div className={styles.imageWrapper}>
                     <Link href={`/product/${product.id}`}>
                       <Card.Img
@@ -178,16 +186,13 @@ const Home: NextPageWithLayout = () => {
                         className={`w-100 ${styles.image}`}
                       />
                     </Link>
-                    {/* Show offer badge only if offer > 0 */}
                     {product.offer > 0 && (
-                      <Badge
-                        bg="success"
-                        className={`position-absolute ${styles.offerBadge}`}
-                      >
+                      <Badge bg="success" className={`position-absolute ${styles.offerBadge}`}>
                         {product.offer}% OFF
                       </Badge>
                     )}
                   </div>
+
                   <Card.Body>
                     <Card.Title>
                       <Link
@@ -198,48 +203,31 @@ const Home: NextPageWithLayout = () => {
                       </Link>
                     </Card.Title>
 
-                    <p className="">
-                      <Badge className={styles.netBadge}>
-                        Net Weight: {product.netWeight}
-                      </Badge>
+                    <p>
+                      <Badge className={styles.netBadge}>Net Weight: {product.netWeight}</Badge>
                     </p>
 
                     <div className="d-flex justify-content-between align-items-center">
                       <div>
-                        {product.discountedPrice &&
-                        product.discountedPrice < product.price ? (
+                        {product.discountedPrice && product.discountedPrice < product.price ? (
                           <>
-                            <span className={styles.oldPrice}>
-                              ₹{product.price}
-                            </span>
-                            <span className={`${styles.price} text-danger`}>
-                              ₹{product.discountedPrice}
-                            </span>
+                            <span className={styles.oldPrice}>₹{product.price}</span>
+                            <span className={`${styles.price} text-danger`}>₹{product.discountedPrice}</span>
                           </>
                         ) : (
-                          <span className={`${styles.price} text-danger`}>
-                            ₹{product.price}
-                          </span>
+                          <span className={`${styles.price} text-danger`}>₹{product.price}</span>
                         )}
                       </div>
+
                       {product.inStock ? (
                         quantity === 0 ? (
-                          <Button
-                            variant="success"
-                            size="sm"
-                            className="d-flex align-items-center"
-                            onClick={() => increment(product.id)}
-                          >
-                            {/* SVG icon */}
+                          <Button variant="success" size="sm" onClick={() => handleAddToCart(product)}>
                             Add to Cart
                           </Button>
                         ) : (
                           <div className="text-center">
                             <div className={styles.quantitySelector}>
-                              <button
-                                className={styles.quantityBtn}
-                                onClick={() => decrement(product.id)}
-                              >
+                              <button className={styles.quantityBtn} onClick={() => decrement(product)}>
                                 -
                               </button>
                               <input
@@ -248,14 +236,9 @@ const Home: NextPageWithLayout = () => {
                                 value={quantity}
                                 min={1}
                                 max={10}
-                                onChange={(e) =>
-                                  handleInputChange(product.id, e.target.value)
-                                }
+                                onChange={(e) => handleInputChange(product, e.target.value)}
                               />
-                              <button
-                                className={styles.quantityBtn}
-                                onClick={() => increment(product.id)}
-                              >
+                              <button className={styles.quantityBtn} onClick={() => increment(product)}>
                                 +
                               </button>
                             </div>
@@ -282,4 +265,5 @@ Home.metadata = HOME_META_DATA;
 Home.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
 };
+
 export default Home;

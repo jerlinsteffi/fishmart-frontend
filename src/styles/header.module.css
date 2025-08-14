@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+.headerContainer {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  height: 70px;
+  background-color: #000000;
+  color: white;
+  font-family: 'Roboto', Helvetica, sans-serif;
+  gap: 20px;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+  margin: 0;
+  padding-left: 70px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.fish {
+  color: #e07844;
+}
+
+.mart {
+  color: #f8efeb;
+}
+
+.location {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.location svg {
+  color: #e07844;
+  margin-right: 4px;
+  font-size: 18px;
+  width: 24px;
+  height: 24px;
+}
+
+.locationText {
+  color: #f8efeb;
+  font-size: 10px;
+}
+
+.headerIcons {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-left: 500px;
+}
+
+.iconTextGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color:#f8efeb;
+  font-size: 13px;
+}
+
+.headerIcons span {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 14;
+  margin-left: 0;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px); 
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu {
+  background: white;
+  width: 300px;
+  height: 100%;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: -250px;
+  transition: left 0.3s ease;
+}
+
+.overlay.show .menu {
+  left: 0;
+}
+
+.menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li {
+  padding: 12px 0;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.menu li:hover {
+  color: #4ca626;
+}
+
+.cartBadge {
+  display: flex;
+  align-items: center;       /* icon left, text right */
+  gap: 6px;                  /* small space between icon and text */
+  border: 2px solid #e07844;
+  background: transparent;
+  color: #e07844;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  min-width: 80px;
+  min-height: 30px;
+  font-size: 10px;
+}
+
+.cartBadge svg {
+  width: 25px;
+  height: 30px;
+  color: #e07844;
+}
+
+.cartBadgeText {
+  display: flex;
+  color: #f8efeb;
+  flex-direction: column;  /* stack items count + amount vertically */
+  font-size: 10px;
+  line-height: 1;          /* smaller gap between two lines */
+}
