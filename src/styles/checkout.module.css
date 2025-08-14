@@ -1,0 +1,105 @@
+.cardSection {
+    background-color: var(--surface-color);
+    border-radius: 16px;
+    margin-bottom: 24px;
+    transition: all 0.3s ease;
+}
+
+.cardHeader {
+    border-top-left-radius: 1rem !important;
+    border-top-right-radius: 1rem !important;
+    padding: 20px 24px;
+    background-color: color-mix(in srgb, var(--surface-color), var(--background-color) 30%);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.cardHeader h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--heading-color);
+}
+
+.infoLabel {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--heading-color);
+}
+
+.formControl {
+    border-radius: 8px;
+    height: 2.5rem;
+    color: var(--default-color);
+    background-color: var(--surface-color);
+    font-size: 15px;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+}
+
+.formControl:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+.formControl::placeholder {
+    color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+
+/* .formControl.is-invalid {
+    border-color: #dc3545;
+} */
+
+.activeCard {
+    border-color: var(--accent-color);
+    background-color: color-mix(in srgb, var(--accent-color), transparent 95%);
+    cursor: pointer;
+}
+
+.orderButton {
+    background-color: var(--accent-color);
+    border: none;
+    color: var(--contrast-color);
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 8px;
+}
+
+.orderButton:hover,
+.promoButton:hover {
+    background-color: color-mix(in srgb, var(--accent-color), transparent 15%);
+}
+
+.promoButton {
+    background-color: var(--accent-color);
+    border: none;
+    color: var(--contrast-color);
+    letter-spacing: 1px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.itemCount {
+    font-size: 0.9rem;
+    background-color: var(--accent-color);
+    color: var(--contrast-color);
+    padding: 4px 10px;
+    border-radius: 20px;
+}
+
+.stickyWrapper {
+    position: sticky !important;
+    top: 100px;
+    z-index: 100;
+}
+
+@media (max-width: 991px) {
+    .stickyWrapper {
+        position: static;
+        top: auto;
+    }
+}

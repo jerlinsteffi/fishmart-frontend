@@ -1,5 +1,5 @@
 import { Layout } from "@/libs/dashboard-layout";
-import { Container, Row, Col, Button, Image, Badge } from "react-bootstrap";
+import { Container, Row, Col, Button, Image, Figure } from "react-bootstrap";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { NextPageWithLayout } from "@/types/page";
@@ -16,9 +16,8 @@ const ProductDetailPage: NextPageWithLayout = () => {
 
   const product = {
     id: productId,
-    name: "Rohu Medium 800 - 1100 Gms (Cleaned & Cut)",
-    image:
-      "https://freshma-web-bucket.s3.ap-south-1.amazonaws.com/freshma/media/products/image/50ead38e-7346-4eff-87cd-1d8a80fbd896.jpg",
+    name: "Rohu",
+    image: "/images/demo.jpg",
     netWeight: "600-840 gms",
     price: 299,
     discountedPrice: 239,
@@ -42,7 +41,7 @@ const ProductDetailPage: NextPageWithLayout = () => {
       const currentQty = prev[id] || 0;
       if (currentQty <= 1) {
         const copy = { ...prev };
-        delete copy[id]; // remove from state if zero or less
+        delete copy[id];
         return copy;
       }
       return { ...prev, [id]: currentQty - 1 };
@@ -58,66 +57,57 @@ const ProductDetailPage: NextPageWithLayout = () => {
   };
 
   return (
-    <Container className="py-4">
-      <div className="bg-white p-4 rounded shadow-sm">
+    <section>
+      <Container>
         <Row>
-          {/* Left side - Product Image */}
+          {/* Product Image */}
           <Col md={6}>
-            <div className="mb-3 position-relative">
-              <Image src={product.image} fluid />
-              <Badge
-                bg="success"
-                className={`position-absolute ${styles.offerBadge}`}
-              >
-                {product.offer}% OFF
-              </Badge>
-            </div>
+            <Figure className={`m-0 rounded-4 ${styles.dishDetailsPhoto}`}>
+              <Image
+                src={product.image}
+                alt="Dish Item"
+                fluid
+                className={`${styles.dishDetailsImage}`}
+              />
+              {/* Offer Badge */}
+              {product.offer && (
+                <div className={`${styles.dishDetailsBadge} position-absolute`}>
+                  <span
+                    className={`${styles.dishDetailsPill} text-white bg-success rounded-pill`}
+                  >
+                    {product.offer}% OFF
+                  </span>
+                </div>
+              )}
+            </Figure>
           </Col>
 
-          {/* Right side - Product Info */}
-
+          {/* Product Info */}
           <Col md={6}>
-            <h5 className="mb-3">{product.name}</h5>
+            <h3 className="fw-bold">{product.name}</h3>
 
-            <Badge bg="light" text="dark" className="mb-3">
-              {product.inStock ? "In Stock" : "Out of Stock"}
-            </Badge>
-
+            {/* Price Display */}
             <div className="mb-2 d-flex align-items-baseline">
               <span className={`fs-6 ${styles.oldPrice}`}>
                 ₹{product.price.toFixed(2)}
               </span>
-              <span className={`text-danger fs-4 ${styles.price}`}>
+              <span className={`fs-4 ${styles.price}`}>
                 ₹{product.discountedPrice.toFixed(2)}
               </span>
             </div>
 
-            <div className="mb-2 text-muted">
-              Net Weight: {product.netWeight}
-            </div>
-
-            <div className="mb-3">
-              <h6>Health Benefits of Rohu</h6>
-              <ul>
-                <li>Rich in Vitamin D, helps nutrient absorption</li>
-                <li>Supports mental health and prevents depression</li>
-                <li>Contains Omega-3 fatty acids and DHA</li>
-              </ul>
-            </div>
-
+            {/* Add to Cart / Quantity Selector */}
             {product.inStock ? (
               quantity === 0 ? (
                 <Button
-                  variant="success"
-                  size="sm"
-                  className="d-flex align-items-center"
+                  variant="primary"
+                  className={`${styles.addButton} d-flex align-items-center rounded-pill px-4 mb-3`}
                   onClick={() => increment(product.id)}
                 >
-                  {/* SVG icon */}
-                  Add to Cart
+                  ADD <span className="ms-2 fw-bold">+</span>
                 </Button>
               ) : (
-                <div className="text-center">
+                <div className="text-center mb-3">
                   <div className={styles.quantitySelector}>
                     <button
                       className={styles.quantityBtn}
@@ -149,10 +139,34 @@ const ProductDetailPage: NextPageWithLayout = () => {
                 Out Of Stock
               </Button>
             )}
+
+            {/* Details Section */}
+            <div className="mb-3">
+              <h6 className="fw-bold text-uppercase">
+                DETAILS ABOUT THIS MEAL
+              </h6>
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries, but also the leap into
+                electronic typesetting, remaining essentially unchanged.
+              </p>
+            </div>
+
+            {/* Ingredients Section */}
+            <div className="mb-3">
+              <h6 className="fw-bold text-uppercase">INGREDIENTS</h6>
+              <p>
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry.
+              </p>
+            </div>
           </Col>
         </Row>
-      </div>
-    </Container>
+      </Container>
+    </section>
   );
 };
 

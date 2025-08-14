@@ -14,3 +14,8 @@ export const PRODUCT_DETAIL_PAGE = {
   title: "Product Details",
   description: "Product Details",
 };
+
+export const CHECKOUT_PAGE = {
+  title: "Checkout",
+  description: "Checkout",
+};
