@@ -23,16 +23,18 @@
   top: 0;
   right: -25vw;        /* hidden initially */
   width: 25vw;          /* quarter screen width */
-  max-width: 350px;     /* never too wide */
-  min-width: 200px;     /* never too narrow */
+  max-width: 400px;     /* never too wide */
+  min-width: 400px;     /* never too narrow */
   height: 100%;
-  background: #f8efeb;
+  background: url('/images/login.jpg') no-repeat center center; /* background image */
+  background-size: cover; /* cover the panel */
   box-shadow: -3px 0 8px rgba(0,0,0,0.2);
   transition: right 0.3s ease;
   z-index: 1001;
   display: flex;
   flex-direction: column;
   padding: 20px;
+  color: #fff; /* text color on background */
 }
 
 .loginPanel.show {
@@ -46,5 +48,8 @@
   height: 100%;
   justify-content: flex-start; /* align top */
   gap: 15px;
+  background: rgba(0, 0, 0, 0.4); /* optional: overlay for readability */
+  padding: 15px;
+  border-radius: 8px;
 }
 
