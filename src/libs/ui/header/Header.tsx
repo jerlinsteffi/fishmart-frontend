@@ -7,12 +7,12 @@ import { Squash as Hamburger } from "hamburger-react";
 import OffCanvasMenu from "./offCanvasMenu";
 import { useCart } from "@/context/CartContext";
 import { useRouter } from "next/router";
-import OffCanvasLogin  from "./offCanvasLogin";
-
+import OffCanvasLogin from "./offCanvasLogin";
+import { Container } from "react-bootstrap";
 
 const Header: React.FC = () => {
   const [isOpen, setOpen] = useState(false);
-  const [loginOpen, setLoginOpen] = useState(false); 
+  const [loginOpen, setLoginOpen] = useState(false);
   const { cart } = useCart();
   const router = useRouter();
 
@@ -24,58 +24,61 @@ const Header: React.FC = () => {
   };
 
   return (
-    <div className={styles.headerContainer}>
-      <header className={styles.header}>
-        <h1 className={styles.logo}>
-          <span className={styles.fish}>FISH</span>
-          <span className={styles.mart}> MART</span>
-        </h1>
+    <header className={`${styles.headerSection} dark-background sticky-top`}>
+      <div className={styles.mainHeader}>
+        <Container>
+          <div className={`${styles.headerWrapper} py-3`}>
+            <div className={styles.logoSection}>
+              <a href="/" className={styles.logo}>
+                <h1>
+                  <span className={styles.headingColor}>FISH</span> MART
+                </h1>
+              </a>
 
-        <div className={styles.location}>
-          <LocationIcon />
-          <span className={styles.locationText}>Select Location</span>
-        </div>
-
-        <div className={styles.headerIcons}>
-          <div
-          className={styles.iconTextGroup}
-          style={{ cursor: "pointer" }}
-          onClick={() => setLoginOpen(true)} 
-          >
-            <ProfileIcon />
-            <span className="user-text">Login</span>
-          </div>
-
-          <div
-            className={styles.iconTextGroup}
-            style={{ position: "relative", cursor: "pointer" }}
-            onClick={handleCartClick}
-          >
-            {totalItems > 0 ? (
-              <div className={styles.cartBadge}>
-                <CartIcon />
-                <div className={styles.cartBadgeText}>
-                  <span>{totalItems} item{totalItems > 1 ? "s" : ""}</span>
-                  <span>₹{totalPrice}</span>
-                </div>
+              <div className={`${styles.location} d-none d-md-block`}>
+                <LocationIcon />
+                <span className={`${styles.locationText}`}>
+                  Select Location
+                </span>
               </div>
-            ) : (
-              <CartIcon />
-            )}
-          </div>
+            </div>
 
-          <div className={styles.iconTextGroup}>
-            <Hamburger toggled={isOpen} toggle={setOpen} size={24} color="#e07844" />
+            <div className={`${styles.headerActions}`}>
+              <button
+                className={styles.headerActionBtn}
+                onClick={() => setLoginOpen(true)}
+              >
+                <ProfileIcon />
+              </button>
+
+              <a onClick={handleCartClick} className={styles.headerActionBtn}>
+                {totalItems > 0 ? (
+                  <div className={styles.cartBadge}>
+                    <CartIcon />
+                    <div className={styles.cartBadgeText}>
+                      <span>
+                        {totalItems} item{totalItems > 1 ? "s" : ""}
+                      </span>
+                      <span>₹{totalPrice}</span>
+                    </div>
+                  </div>
+                ) : (
+                  <CartIcon />
+                )}
+              </a>
+
+              <div className={styles.sideMenuBar}>
+                <Hamburger toggled={isOpen} toggle={setOpen} size={24} />
+              </div>
+            </div>
           </div>
-        </div>
-      </header>
+        </Container>
+      </div>
 
       <OffCanvasMenu isOpen={isOpen} onClose={() => setOpen(false)} />
       <OffCanvasLogin isOpen={loginOpen} onClose={() => setLoginOpen(false)} />
-    </div>
+    </header>
   );
 };
 
 export default Header;
-
-

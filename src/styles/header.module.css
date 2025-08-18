@@ -1,31 +1,85 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
-
-.headerContainer {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  background-color: white;
+.headerSection {
+  color: var(--default-color);
+  background-color: var(--background-color);
+  transition: all 0.5s;
+  z-index: 997;
 }
 
-.header {
+.mainHeader {
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.headerWrapper {
   display: flex;
   align-items: center;
-  padding: 10px 20px;
-  height: 70px;
-  background-color: #000000;
-  color: white;
-  font-family: 'Roboto', Helvetica, sans-serif;
-  gap: 20px;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .logo {
-  font-size: 26px;
-  font-weight: bold;
-  margin: 0;
-  padding-left: 70px;
-  font-family: "Montserrat", sans-serif;
+  line-height: 1;
+  text-decoration: none;
 }
 
-.fish {
+.logo h1 {
+  font-size: 26px;
+  margin: 0;
+  font-weight: 700;
+  color: var(--heading-color);
+}
+
+.headingColor {
+  color: var(--accent-color);
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.headerActionBtn {
+  position: relative;
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  color: var(--default-color);
+  font-size: 15px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.cartBadge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: 2px solid #e07844;
+  background: transparent;
   color: #e07844;
+  padding: 4px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  min-width: 80px;
+  min-height: 30px;
+  font-size: 10px;
+}
+
+.cartBadgeText {
+  display: flex;
+  color: #f8efeb;
+  flex-direction: column;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.cartBadge svg {
+  font-size: 24px;
+  color: var(--accent-color);
+}
+
+.sideMenuBar {
+  font-size: 24px;
+  color: var(--accent-color);
 }
 
 .mart {
@@ -39,67 +93,73 @@
 }
 
 .location svg {
-  color: #e07844;
-  margin-right: 4px;
-  font-size: 18px;
-  width: 24px;
-  height: 24px;
+  font-size: 24px;
+  color: var(--accent-color);
 }
 
 .locationText {
   color: #f8efeb;
-  font-size: 10px;
+  font-size: 0.875rem;
 }
 
-.headerIcons {
+.logoSection {
   display: flex;
   align-items: center;
-  gap: 60px;
-  margin-left: 500px;
-}
-
-.iconTextGroup {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  color:#f8efeb;
-  font-size: 13px;
-}
-
-.headerIcons span {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 500;
-  font-size: 14;
-  margin-left: 0;
+  gap: 50px;
 }
 
 
-.cartBadge {
-  display: flex;
-  align-items: center;       /* icon left, text right */
-  gap: 6px;                  /* small space between icon and text */
-  border: 2px solid #e07844;
-  background: transparent;
-  color: #e07844;
-  padding: 4px 8px;
-  border-radius: 6px;
-  cursor: pointer;
-  min-width: 80px;
-  min-height: 30px;
-  font-size: 10px;
+/* ----------- RESPONSIVE FIXES ----------- */
+
+/* Tablet */
+@media (max-width: 992px) {
+  .headerWrapper {
+    gap: 12px;
+  }
+
+  .logo h1 {
+    font-size: 22px;
+  }
+
+  .headerActions {
+    gap: 16px;
+  }
 }
 
-.cartBadge svg {
-  width: 25px;
-  height: 30px;
-  color: #e07844;
-}
+/* Mobile */
+@media (max-width: 768px) {
+  .headerWrapper {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 
-.cartBadgeText {
-  display: flex;
-  color: #f8efeb;
-  flex-direction: column;  /* stack items count + amount vertically */
-  font-size: 10px;
-  line-height: 1;          /* smaller gap between two lines */
-}
+  .logo h1 {
+    font-size: 20px;
+  }
 
+  .locationText {
+    font-size: 11px;
+  }
+
+  .headerActions {
+    gap: 5px;
+  }
+
+  .headerActionBtn {
+    padding: 0.45rem;
+  }
+
+
+  .cartBadge {
+    min-width: auto;
+    padding: 3px 6px;
+  }
+
+  .cartBadgeText {
+    font-size: 9px;
+  }
+
+  .logoSection {
+    gap: 20px;
+  }
+}

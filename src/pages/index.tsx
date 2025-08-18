@@ -148,8 +148,8 @@ const Home: NextPageWithLayout = () => {
       {
         id: product.id,
         name: product.name,
-        image: product.image,                  
-        price: product.price,                  
+        image: product.image,
+        price: product.price,
       },
       qty
     );
@@ -199,7 +199,7 @@ const Home: NextPageWithLayout = () => {
             {products.map((product) => {
               const quantity = quantities[product.id] || 0;
               return (
-                <Col key={product.id} xs={12} md={4} className="mb-4">
+                <Col key={product.id} xs={12} lg={4} md={6} className="mb-4">
                   <Card
                     className={`h-100 shadow-sm border-0 ${styles.customCard}`}
                   >
