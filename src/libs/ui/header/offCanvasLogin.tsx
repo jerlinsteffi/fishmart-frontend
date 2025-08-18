@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "@/styles/offcanvas.module.css"; // reuse your offcanvas CSS
+import styles from "@/styles/user.module.css"; 
 import Link from "next/link";
 
 interface OffCanvasLoginProps {
@@ -13,17 +13,27 @@ const OffCanvasLogin: React.FC<OffCanvasLoginProps> = ({ isOpen, onClose }) => {
       className={`${styles.overlay} ${isOpen ? styles.show : ""}`}
       onClick={onClose} 
     >
-      <div className={`${styles.menu} ${styles.menuRight}`} onClick={(e) => e.stopPropagation()}>
-        <div className={styles.menuContent}>
+      <div
+        className={`${styles.loginPanel} ${isOpen ? styles.show : ""}`} 
+        onClick={(e) => e.stopPropagation()} 
+      >
+        <div className={styles.loginContent}>
           <h2>Login</h2>
-          <form className="d-flex flex-column gap-2">
-            <input type="email" placeholder="Email" className="form-control" />
-            <input type="password" placeholder="Password" className="form-control" />
-            <button type="submit" className="btn btn-primary mt-2">
-              Login
-            </button>
-          </form>
-          <p className="mt-3">
+
+          {/* Mobile Number Input */}
+          <div className="mb-3">
+            <input
+              type="tel"
+              placeholder="Enter mobile number"
+              className="form-control"
+            />
+          </div>
+
+          <button type="submit" className="btn btn-primary w-100">
+            Send OTP
+          </button>
+
+          <p className="mt-3 text-center">
             New user? <Link href="/signup">Sign up here</Link>
           </p>
         </div>
@@ -33,3 +43,9 @@ const OffCanvasLogin: React.FC<OffCanvasLoginProps> = ({ isOpen, onClose }) => {
 };
 
 export default OffCanvasLogin;
+
+
+
+
+
+

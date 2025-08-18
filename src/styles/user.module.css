@@ -1,0 +1,50 @@
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 1000;
+}
+
+.overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Off-canvas panel */
+.loginPanel {
+  position: fixed;
+  top: 0;
+  right: -25vw;        /* hidden initially */
+  width: 25vw;          /* quarter screen width */
+  max-width: 350px;     /* never too wide */
+  min-width: 200px;     /* never too narrow */
+  height: 100%;
+  background: #f8efeb;
+  box-shadow: -3px 0 8px rgba(0,0,0,0.2);
+  transition: right 0.3s ease;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.loginPanel.show {
+  right: 0; /* slide in */
+}
+
+/* Login content */
+.loginContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start; /* align top */
+  gap: 15px;
+}
+

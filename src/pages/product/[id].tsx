@@ -1,6 +1,5 @@
 import { Layout } from "@/libs/dashboard-layout";
 import { Container, Row, Col, Button, Image, Figure } from "react-bootstrap";
-import { useState } from "react";
 import { useRouter } from "next/router";
 import { NextPageWithLayout } from "@/types/page";
 import { PRODUCT_DETAIL_PAGE } from "@/contants/meta-data";
@@ -10,9 +9,9 @@ import { useCart } from "@/context/CartContext";
 const ProductDetailPage: NextPageWithLayout = () => {
   const router = useRouter();
   const { id } = router.query;
-  const { cart, addToCart, updateQty, removeFromCart } = useCart();
+  const { cart, addToCart, updateQty } = useCart();
   const productId = Number(id) || 1;
-  const [quantities, setQuantities] = useState<{ [key: number]: number }>({});
+
   const product = {
     id: productId,
     name: "Mangur Fish Curry",
@@ -25,35 +24,41 @@ const ProductDetailPage: NextPageWithLayout = () => {
     description:
       "Delicious homemade fish curry with authentic spices and fresh ingredients.",
   };
-  
-  
-  const quantity = quantities[productId] || 0;
 
-  const increment = (id: number) => {
-    setQuantities((prev) => ({
-      ...prev,
-      [id]: (prev[id] || 0) + 1,
-    }));
+  // Get current quantity from the cart
+  const cartItem = cart.find((i) => i.id === productId);
+  const quantity = cartItem ? cartItem.qty : 0;
+
+  // Increment quantity
+  const increment = () => {
+    if (quantity === 0) {
+      addToCart(
+        {
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          image: product.image,
+        },
+        1
+      );
+    } else {
+      updateQty(product.id, quantity + 1);
+    }
   };
 
-  const decrement = (id: number) => {
-    setQuantities((prev) => {
-      const currentQty = prev[id] || 0;
-      if (currentQty <= 1) {
-        const copy = { ...prev };
-        delete copy[id];
-        return copy;
-      }
-      return { ...prev, [id]: currentQty - 1 };
-    });
+  // Decrement quantity
+  const decrement = () => {
+    if (quantity > 1) {
+      updateQty(product.id, quantity - 1);
+    } else if (quantity === 1) {
+      updateQty(product.id, 0); // remove from cart
+    }
   };
 
-  const handleInputChange = (id: number, value: string) => {
+  // Handle manual input
+  const handleInputChange = (value: string) => {
     const numberValue = Math.max(1, Math.min(10, Number(value)));
-    setQuantities((prev) => ({
-      ...prev,
-      [id]: numberValue,
-    }));
+    updateQty(product.id, numberValue);
   };
 
   return (
@@ -69,7 +74,6 @@ const ProductDetailPage: NextPageWithLayout = () => {
                 fluid
                 className={`${styles.dishDetailsImage}`}
               />
-              {/* Offer Badge */}
               {product.offer && (
                 <div className={`${styles.dishDetailsBadge} position-absolute`}>
                   <span
@@ -86,7 +90,7 @@ const ProductDetailPage: NextPageWithLayout = () => {
           <Col md={6}>
             <h3 className="fw-bold">{product.name}</h3>
 
-            {/* Price Display */}
+            {/* Price */}
             <div className="mb-2 d-flex align-items-baseline">
               <span className={`fs-6 ${styles.oldPrice}`}>
                 ₹{product.price.toFixed(2)}
@@ -102,17 +106,14 @@ const ProductDetailPage: NextPageWithLayout = () => {
                 <Button
                   variant="primary"
                   className={`${styles.addButton} d-flex align-items-center px-4 my-4`}
-                  onClick={() => increment(product.id)}
+                  onClick={increment}
                 >
                   ADD <i className="bi bi-plus"></i>
                 </Button>
               ) : (
-                <div className="text-center my-4" style={{ width: "94px"}}>
+                <div className="text-center my-4" style={{ width: "94px" }}>
                   <div className={styles.quantitySelector}>
-                    <button
-                      className={styles.quantityBtn}
-                      onClick={() => decrement(product.id)}
-                    >
+                    <button className={styles.quantityBtn} onClick={decrement}>
                       -
                     </button>
                     <input
@@ -121,14 +122,9 @@ const ProductDetailPage: NextPageWithLayout = () => {
                       value={quantity}
                       min={1}
                       max={10}
-                      onChange={(e) =>
-                        handleInputChange(product.id, e.target.value)
-                      }
+                      onChange={(e) => handleInputChange(e.target.value)}
                     />
-                    <button
-                      className={styles.quantityBtn}
-                      onClick={() => increment(product.id)}
-                    >
+                    <button className={styles.quantityBtn} onClick={increment}>
                       +
                     </button>
                   </div>
@@ -142,28 +138,21 @@ const ProductDetailPage: NextPageWithLayout = () => {
 
             {/* Details Section */}
             <div className="mb-3">
-              <h6 className="fw-bold text-uppercase">
-                DETAILS ABOUT THIS MEAL
-              </h6>
+              <h6 className="fw-bold text-uppercase">DETAILS ABOUT THIS MEAL</h6>
               <p>
-                Experience the authentic flavors of India with our Mangur Fish
-                Curry. Made with fresh catfish and simmered in a blend of
-                aromatic spices, this curry delivers a perfect balance of tangy,
-                spicy, and savory notes. Infused with the subtle richness of
-                mustard oil and a hint of tamarind, every bite bursts with
-                traditional South Indian flavors. Ideal to pair with steamed
-                rice or your favorite bread, this dish promises a delightful
-                seafood.
+                Experience the authentic flavors of India with our Mangur Fish Curry. Made
+                with fresh catfish and simmered in a blend of aromatic spices, this curry
+                delivers a perfect balance of tangy, spicy, and savory notes. Infused with
+                the subtle richness of mustard oil and a hint of tamarind, every bite
+                bursts with traditional South Indian flavors. Ideal to pair with steamed
+                rice or your favorite bread, this dish promises a delightful seafood.
               </p>
             </div>
 
             {/* Ingredients Section */}
             <div className="mb-3">
               <h6 className="fw-bold text-uppercase">INGREDIENTS</h6>
-              <p>
-                Mangur (catfish), onion, garlic, tomatoes, turmeric, red chili
-                powder, tamarind.
-              </p>
+              <p>Mangur (catfish), onion, garlic, tomatoes, turmeric, red chili powder, tamarind.</p>
             </div>
           </Col>
         </Row>
