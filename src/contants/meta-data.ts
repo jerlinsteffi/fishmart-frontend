@@ -19,3 +19,8 @@ export const CHECKOUT_PAGE = {
   title: "Checkout",
   description: "Checkout",
 };
+
+export const CONTACT_PAGE = {
+  title: "Contact",
+  description: "Contact",
+};

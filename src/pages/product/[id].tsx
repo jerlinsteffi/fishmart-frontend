@@ -16,8 +16,8 @@ const ProductDetailPage: NextPageWithLayout = () => {
 
   const product = {
     id: productId,
-    name: "Rohu",
-    image: "/images/demo.jpg",
+    name: "Mangur Fish Curry",
+    image: "/images/demo_3.jpg",
     netWeight: "600-840 gms",
     price: 299,
     discountedPrice: 239,
@@ -57,7 +57,7 @@ const ProductDetailPage: NextPageWithLayout = () => {
   };
 
   return (
-    <section>
+    <section className={`${styles.section}`}>
       <Container>
         <Row>
           {/* Product Image */}
@@ -101,13 +101,13 @@ const ProductDetailPage: NextPageWithLayout = () => {
               quantity === 0 ? (
                 <Button
                   variant="primary"
-                  className={`${styles.addButton} d-flex align-items-center rounded-pill px-4 mb-3`}
+                  className={`${styles.addButton} d-flex align-items-center px-4 my-4`}
                   onClick={() => increment(product.id)}
                 >
-                  ADD <span className="ms-2 fw-bold">+</span>
+                  ADD <i className="bi bi-plus"></i>
                 </Button>
               ) : (
-                <div className="text-center mb-3">
+                <div className="text-center my-4" style={{ width: "94px"}}>
                   <div className={styles.quantitySelector}>
                     <button
                       className={styles.quantityBtn}
@@ -146,12 +146,14 @@ const ProductDetailPage: NextPageWithLayout = () => {
                 DETAILS ABOUT THIS MEAL
               </h6>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries, but also the leap into
-                electronic typesetting, remaining essentially unchanged.
+                Experience the authentic flavors of India with our Mangur Fish
+                Curry. Made with fresh catfish and simmered in a blend of
+                aromatic spices, this curry delivers a perfect balance of tangy,
+                spicy, and savory notes. Infused with the subtle richness of
+                mustard oil and a hint of tamarind, every bite bursts with
+                traditional South Indian flavors. Ideal to pair with steamed
+                rice or your favorite bread, this dish promises a delightful
+                seafood.
               </p>
             </div>
 
@@ -159,8 +161,8 @@ const ProductDetailPage: NextPageWithLayout = () => {
             <div className="mb-3">
               <h6 className="fw-bold text-uppercase">INGREDIENTS</h6>
               <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry.
+                Mangur (catfish), onion, garlic, tomatoes, turmeric, red chili
+                powder, tamarind.
               </p>
             </div>
           </Col>

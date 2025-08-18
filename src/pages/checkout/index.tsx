@@ -17,36 +17,29 @@ import Image from "next/image";
 const CheckoutPage: NextPageWithLayout = () => {
   const [selected, setSelected] = useState("credit-card");
 
-  const paymentMethods = [
-    {
-      id: "credit-card",
-      label: "Credit / Debit Card",
-      icon: "Card",
-    },
-    { id: "paypal", label: "PayPal", icon: "pay" },
-    { id: "apple-pay", label: "Apple Pay", icon: "apple" },
-  ];
-
   const orderItems = [
     {
       id: 1,
       name: "Fish Curry Meal",
       quantity: 1,
       price: 299.0,
-      image: "/images/demo.jpg",
+      image: "/images/demo_3.jpg",
     },
     {
       id: 2,
       name: "Fried Pomfret",
       quantity: 2,
       price: 199.0,
-      image: "/images/demo.jpg",
+      image: "/images/demo_2.jpg",
     },
   ];
 
   return (
-    <section className="p-5">
+    <section className={styles.section}>
       <Container>
+        <div className={`${styles.sectionTitle} p-3`}>
+          <h2>Checkout</h2>
+        </div>
         <Row>
           <Col lg={7} xs={12}>
             <div>
@@ -187,22 +180,57 @@ const CheckoutPage: NextPageWithLayout = () => {
                   </Card.Header>
                   <Card.Body>
                     <Row className="g-3">
-                      {paymentMethods.map((method) => (
-                        <Col xs={12} sm={4} lg={4} key={method.id}>
-                          <Card
-                            className={`text-center p-3 border-2 rounded-4 ${
-                              selected === method.id ? styles.activeCard : ""
-                            }`}
-                            style={{ cursor: "pointer" }}
-                            onClick={() => setSelected(method.id)}
-                          >
-                            <div className="mb-2">{method.icon}</div>
-                            <Card.Text className="fw-semibold">
-                              {method.label}
-                            </Card.Text>
-                          </Card>
-                        </Col>
-                      ))}
+                      {/* Credit / Debit Card */}
+                      <Col xs={12} sm={4} lg={4}>
+                        <Card
+                          className={`text-center p-3 border-2 rounded-4 ${
+                            selected === "credit-card" ? styles.activeCard : ""
+                          }`}
+                          style={{ cursor: "pointer" }}
+                          onClick={() => setSelected("credit-card")}
+                        >
+                          <div className={`${styles.paymentIcons} mb-2`}>
+                            <i className="bi bi-credit-card-2-front"></i>
+                          </div>
+                          <Card.Text className="fw-semibold">
+                            Credit / Debit Card
+                          </Card.Text>
+                        </Card>
+                      </Col>
+
+                      {/* PayPal */}
+                      <Col xs={12} sm={4} lg={4}>
+                        <Card
+                          className={`text-center p-3 border-2 rounded-4 ${
+                            selected === "paypal" ? styles.activeCard : ""
+                          }`}
+                          style={{ cursor: "pointer" }}
+                          onClick={() => setSelected("paypal")}
+                        >
+                          <div className={`${styles.paymentIcons} mb-2`}>
+                            <i className="bi bi-paypal"></i>
+                          </div>
+                          <Card.Text className="fw-semibold">PayPal</Card.Text>
+                        </Card>
+                      </Col>
+
+                      {/* Apple Pay */}
+                      <Col xs={12} sm={4} lg={4}>
+                        <Card
+                          className={`text-center p-3 border-2 rounded-4 ${
+                            selected === "apple-pay" ? styles.activeCard : ""
+                          }`}
+                          style={{ cursor: "pointer" }}
+                          onClick={() => setSelected("apple-pay")}
+                        >
+                          <div className={`${styles.paymentIcons} mb-2`}>
+                            <i className="bi bi-apple"></i>
+                          </div>
+                          <Card.Text className="fw-semibold">
+                            Apple Pay
+                          </Card.Text>
+                        </Card>
+                      </Col>
                     </Row>
 
                     {/* Payment Details Form */}
@@ -213,18 +241,12 @@ const CheckoutPage: NextPageWithLayout = () => {
                             <Form.Label className={styles.infoLabel}>
                               Card Number
                             </Form.Label>
-                            {/* <div className="d-flex align-items-center"> */}
                             <Form.Control
                               className={`${styles.formControl}`}
                               type="text"
                               placeholder="1234 5678 9012 3456"
                               required
                             />
-                            {/* <div className="ms-2 text-muted fs-5">
-                              <i className="bi bi-credit-card-2-front"></i>
-                              <i className="bi bi-credit-card ms-1"></i>
-                            </div> */}
-                            {/* </div> */}
                           </Form.Group>
 
                           <Row>
@@ -246,20 +268,12 @@ const CheckoutPage: NextPageWithLayout = () => {
                                 <Form.Label className={styles.infoLabel}>
                                   Security Code (CVV)
                                 </Form.Label>
-                                {/* <div className="d-flex align-items-center"> */}
                                 <Form.Control
                                   className={`${styles.formControl}`}
                                   type="text"
                                   placeholder="123"
                                   required
                                 />
-                                {/* <span
-                                  className="ms-2 text-muted"
-                                  title="3-digit code on the back of your card"
-                                >
-                                  <i className="bi bi-question-circle"></i>
-                                </span> */}
-                                {/* </div> */}
                               </Form.Group>
                             </Col>
                           </Row>
@@ -310,7 +324,7 @@ const CheckoutPage: NextPageWithLayout = () => {
                       className={`w-100 d-flex justify-content-between align-items-center px-4 ${styles.orderButton}`}
                     >
                       <span>Place Order</span>
-                      <span className="fw-bold fs-5 text-white">$240.96</span>
+                      <span className="fw-bold fs-5 text-white">₹777.00</span>
                     </Button>
                   </Card.Body>
                 </Card>
