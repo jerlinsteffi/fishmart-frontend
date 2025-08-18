@@ -24,3 +24,8 @@ export const CONTACT_PAGE = {
   title: "Contact",
   description: "Contact",
 };
+
+export const ABOUT_PAGE = {
+  title: "About",
+  description: "About",
+};

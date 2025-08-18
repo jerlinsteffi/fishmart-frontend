@@ -309,7 +309,9 @@ const CheckoutPage: NextPageWithLayout = () => {
                   </Card.Body>
                 </Card>
 
-                <Card className={`${styles.cardSection} border-0 shadow-sm`}>
+                <Card
+                  className={`${styles.cardSection} border-0 shadow-sm d-none d-md-block`}
+                >
                   <Card.Header className={`${styles.cardHeader}`}>
                     <h3>Review & Place Order</h3>
                   </Card.Header>
@@ -403,6 +405,31 @@ const CheckoutPage: NextPageWithLayout = () => {
                 </Card.Body>
               </Card>
             </div>
+          </Col>
+
+          <Col>
+            {" "}
+            <Card
+              className={`${styles.cardSection} border-0 shadow-sm d-md-none d-block`}
+            >
+              <Card.Header className={`${styles.cardHeader}`}>
+                <h3>Review & Place Order</h3>
+              </Card.Header>
+              <Card.Body>
+                <p>
+                  You’re just one step away! Click the button below to confirm
+                  your order.
+                </p>
+
+                <Button
+                  variant="primary"
+                  className={`w-100 d-flex justify-content-between align-items-center px-4 ${styles.orderButton}`}
+                >
+                  <span>Place Order</span>
+                  <span className="fw-bold fs-5 text-white">₹777.00</span>
+                </Button>
+              </Card.Body>
+            </Card>
           </Col>
         </Row>
       </Container>

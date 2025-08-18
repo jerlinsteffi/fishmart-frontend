@@ -1,0 +1,26 @@
+.section {
+    padding: 40px 0;
+    scroll-margin-top: 78px;
+}
+
+.sectionTitle h2 {
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.aboutGallery {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.aboutGallery :hover {
+    transform: scale(1.02);
+}
+
+.aboutContent h2 {
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    position: relative;
+}
