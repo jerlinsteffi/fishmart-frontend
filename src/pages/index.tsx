@@ -148,7 +148,8 @@ const Home: NextPageWithLayout = () => {
       {
         id: product.id,
         name: product.name,
-        price: product.discountedPrice || product.price,
+        image: product.image,                  
+        price: product.price,                  
       },
       qty
     );

@@ -5,15 +5,14 @@ import { useRouter } from "next/router";
 import { NextPageWithLayout } from "@/types/page";
 import { PRODUCT_DETAIL_PAGE } from "@/contants/meta-data";
 import styles from "../../styles/home.module.css";
+import { useCart } from "@/context/CartContext";
 
 const ProductDetailPage: NextPageWithLayout = () => {
   const router = useRouter();
   const { id } = router.query;
-
+  const { cart, addToCart, updateQty, removeFromCart } = useCart();
   const productId = Number(id) || 1;
-
   const [quantities, setQuantities] = useState<{ [key: number]: number }>({});
-
   const product = {
     id: productId,
     name: "Mangur Fish Curry",
@@ -26,7 +25,8 @@ const ProductDetailPage: NextPageWithLayout = () => {
     description:
       "Delicious homemade fish curry with authentic spices and fresh ingredients.",
   };
-
+  
+  
   const quantity = quantities[productId] || 0;
 
   const increment = (id: number) => {

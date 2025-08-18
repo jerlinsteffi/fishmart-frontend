@@ -1,18 +1,23 @@
-// context/CartContext.tsx
 import React, { createContext, useContext, useState, ReactNode } from "react";
 
 export type CartItem = {
   id: number;
   name: string;
   price: number;
+  discountPrice?: number;
   qty: number;
+  image: string; 
+
 };
 
 type CartContextType = {
   cart: CartItem[];
   addToCart: (item: Omit<CartItem, "qty">, qty?: number) => void;
   updateQty: (id: number, qty: number) => void;
+  removeFromCart: (id: number) => void;
+  clearCart: () => void;
 };
+
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
@@ -32,13 +37,24 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const updateQty = (id: number, qty: number) => {
-    setCart((prev) =>
-      prev.map((i) => (i.id === id ? { ...i, qty } : i))
-    );
+    if (qty <= 0) {
+      setCart((prev) => prev.filter((i) => i.id !== id));
+    } else {
+      setCart((prev) => prev.map((i) => (i.id === id ? { ...i, qty } : i)));
+    }
   };
 
+  const removeFromCart = (id: number) => {
+    setCart((prev) => prev.filter((i) => i.id !== id));
+  };
+
+  const clearCart = () => {
+  setCart([]);
+};
+
+
   return (
-    <CartContext.Provider value={{ cart, addToCart, updateQty }}>
+    <CartContext.Provider value={{ cart, addToCart, updateQty, removeFromCart, clearCart}}>
       {children}
     </CartContext.Provider>
   );

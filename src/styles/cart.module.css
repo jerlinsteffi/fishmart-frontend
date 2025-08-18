@@ -1,0 +1,77 @@
+/* PRODUCT IMAGE */
+.itemImage {
+  width: 120px;   /* Increased from 60px → 120px */
+  height: 120px;  /* Increased from 60px → 120px */
+  object-fit: cover;
+  border-radius: 8px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.itemImage:hover {
+  transform: scale(1.05);
+}
+
+/* DELETE BUTTON */
+.deleteBtn {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  padding: 2px 6px;
+  background: none;
+  border: none;
+  color: #555;
+  cursor: pointer;
+}
+.deleteBtn:hover {
+  color: #d9534f;
+}
+.deleteBtn svg {
+  width: 14px;
+  height: 14px;
+  margin-right: 4px;
+}
+
+/* QUANTITY CONTROLS */
+.qtyBtn {
+  background: #ffffff;
+  border: 1px solid #e07844;
+  width: 28px;   /* slightly bigger */
+  height: 28px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+}
+.qtyBtn:hover {
+  background: #e0e0e0;
+}
+
+.qtyInput {
+  width: 42px;   /* slightly wider */
+  height: 28px;
+  border: 1px solid #e07844;
+  margin: 0 4px;
+  text-align: center;
+  font-size: 14px;
+
+  /* Remove arrows from number input */
+  -moz-appearance: textfield;
+}
+.qtyInput::-webkit-outer-spin-button,
+.qtyInput::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* CHECKOUT BUTTON */
+.checkoutBtn {
+  background-color: #e07844 !important;
+  border-color: #e07844 !important;
+  color: #fff !important;
+}
+.checkoutBtn:hover {
+  background-color: #cf6b3a !important;
+  border-color: #cf6b3a !important;
+}

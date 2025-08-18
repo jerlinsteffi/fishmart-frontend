@@ -7,9 +7,12 @@ import { Squash as Hamburger } from "hamburger-react";
 import OffCanvasMenu from "./offCanvasMenu";
 import { useCart } from "@/context/CartContext";
 import { useRouter } from "next/router";
+import OffCanvasLogin  from "./offCanvasLogin";
+
 
 const Header: React.FC = () => {
   const [isOpen, setOpen] = useState(false);
+  const [loginOpen, setLoginOpen] = useState(false); 
   const { cart } = useCart();
   const router = useRouter();
 
@@ -34,7 +37,11 @@ const Header: React.FC = () => {
         </div>
 
         <div className={styles.headerIcons}>
-          <div className={styles.iconTextGroup}>
+          <div
+          className={styles.iconTextGroup}
+          style={{ cursor: "pointer" }}
+          onClick={() => setLoginOpen(true)} 
+          >
             <ProfileIcon />
             <span className="user-text">Login</span>
           </div>
@@ -64,6 +71,7 @@ const Header: React.FC = () => {
       </header>
 
       <OffCanvasMenu isOpen={isOpen} onClose={() => setOpen(false)} />
+      <OffCanvasLogin isOpen={loginOpen} onClose={() => setLoginOpen(false)} />
     </div>
   );
 };
