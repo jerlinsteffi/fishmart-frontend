@@ -15,8 +15,8 @@ const ProductDetailPage: NextPageWithLayout = () => {
   const product = {
     id: productId,
     name: "Mangur Fish Curry",
-    image: "/fishmart-frontend/images/demo_3.jpg",
-    // image: "/images/demo_3.jpg",
+    // image: "/fishmart-frontend/images/demo_3.jpg",
+    image: "/images/demo_3.jpg",
     netWeight: "600-840 gms",
     price: 299,
     discountedPrice: 239,

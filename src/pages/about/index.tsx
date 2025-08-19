@@ -15,8 +15,8 @@ const AboutPage: NextPageWithLayout = () => {
           <Col lg={5}>
             <div className={styles.aboutGallery}>
               <Image
-                // src="/images/about.webp"
-                src="/fishmart-frontend/images/about.webp"
+                src="/images/about.webp"
+                // src="/fishmart-frontend/images/about.webp"
                 className="img-fluid rounded"
                 alt="About Image"
               />

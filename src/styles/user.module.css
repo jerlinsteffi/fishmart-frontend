@@ -25,8 +25,8 @@
   width: 30vw;
   max-width: 500px;
   height: 100%;
-  /* background: url('/images/login.jpg') no-repeat center center; */
-  background: url("/fishmart-frontend/images/login.jpg") no-repeat center center;
+  background: url('/images/login.jpg') no-repeat center center;
+  /* background: url("/fishmart-frontend/images/login.jpg") no-repeat center center; */
   background-size: cover;
   box-shadow: -3px 0 8px rgba(0, 0, 0, 0.2);
   transition: right 0.3s ease;

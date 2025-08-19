@@ -19,8 +19,8 @@ const products = [
   {
     id: 1,
     name: "Fish Fry",
-    // image: "/images/demo_1.jpg",
-    image: "/fishmart-frontend/images/demo_1.jpg",
+    image: "/images/demo_1.jpg",
+    // image: "/fishmart-frontend/images/demo_1.jpg",
     netWeight: "340-390 gms",
     price: 320,
     discountedPrice: 299,
@@ -30,8 +30,8 @@ const products = [
   {
     id: 2,
     name: "Fish Curry",
-    // image: "/images/demo_2.jpg",
-    image: "/fishmart-frontend/images/demo_2.jpg",
+    image: "/images/demo_2.jpg",
+    // image: "/fishmart-frontend/images/demo_2.jpg",
     netWeight: "340-390 gms",
     price: 299,
     discountedPrice: 280,
@@ -41,8 +41,8 @@ const products = [
   {
     id: 3,
     name: "Mangur fish curry",
-    // image: "images/demo_3.jpg",
-    image: "/fishmart-frontend/images/demo_3.jpg",
+    image: "images/demo_3.jpg",
+    // image: "/fishmart-frontend/images/demo_3.jpg",
     netWeight: "340-390 gms",
     price: 299,
     discountedPrice: 249,
@@ -52,8 +52,8 @@ const products = [
   {
     id: 4,
     name: "Chettinad Fish Curry",
-    // image: "/images/demo_4.avif",
-    image: "/fishmart-frontend/images/demo_4.avif",
+    image: "/images/demo_4.avif",
+    // image: "/fishmart-frontend/images/demo_4.avif",
     netWeight: "480-500 gms",
     price: 600,
     discountedPrice: 579,
@@ -63,8 +63,8 @@ const products = [
   {
     id: 5,
     name: "Kerala Meen Moilee",
-    // image: "/images/demo_3.jpg",
-    image: "/fishmart-frontend/images/demo_3.jpg",
+    image: "/images/demo_3.jpg",
+    // image: "/fishmart-frontend/images/demo_3.jpg",
     netWeight: "290-350 gms",
     price: 349,
     discountedPrice: 329,
@@ -74,8 +74,8 @@ const products = [
   {
     id: 6,
     name: "Fish Masala Curry",
-    // image: "images/demo_4.avif",
-    image: "/fishmart-frontend/images/demo_4.avif",
+    image: "images/demo_4.avif",
+    // image: "/fishmart-frontend/images/demo_4.avif",
     netWeight: "340 gms",
     price: 299,
     discountedPrice: 289,
@@ -85,8 +85,8 @@ const products = [
   {
     id: 7,
     name: "Fish Curry",
-    // image: "/images/demo_3.jpg",
-    image: "/fishmart-frontend/images/demo_3.jpg",
+    image: "/images/demo_3.jpg",
+    // image: "/fishmart-frontend/images/demo_3.jpg",
     netWeight: "450-550 gms",
     price: 310,
     discountedPrice: 280,
@@ -96,8 +96,8 @@ const products = [
   {
     id: 8,
     name: "Fish Curry",
-    // image: "/images/demo_2.jpg",
-    image: "/fishmart-frontend/images/demo_2.jpg",
+    image: "/images/demo_2.jpg",
+    // image: "/fishmart-frontend/images/demo_2.jpg",
     netWeight: "650-750 gms",
     price: 299,
     discountedPrice: 259,
@@ -107,8 +107,8 @@ const products = [
   {
     id: 9,
     name: "Masala Fish Curry",
-    // image: "images/demo_1.jpg",
-    image: "/fishmart-frontend/images/demo_1.jpg",
+    image: "images/demo_1.jpg",
+    // image: "/fishmart-frontend/images/demo_1.jpg",
     netWeight: "750-850 gms",
     price: 299,
     discountedPrice: 239,
@@ -173,8 +173,8 @@ const Home: NextPageWithLayout = () => {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                // src="/images/demo.jpg"
-                src="/fishmart-frontend/images/demo.jpg"
+                src="/images/demo.jpg"
+                // src="/fishmart-frontend/images/demo.jpg"
                 alt="Banner 1"
               />
               <Carousel.Caption className="text-center d-flex flex-column justify-content-center align-items-center h-100 px-3">
@@ -189,8 +189,8 @@ const Home: NextPageWithLayout = () => {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                // src="/images/demo.jpg"
-                src="/fishmart-frontend/images/demo.jpg"
+                src="/images/demo.jpg"
+                // src="/fishmart-frontend/images/demo.jpg"
                 alt="Banner 2"
               />
               <Carousel.Caption className="text-center d-flex flex-column justify-content-center align-items-center h-100 px-3">
