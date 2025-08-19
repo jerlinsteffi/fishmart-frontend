@@ -21,7 +21,7 @@ const products = [
     id: 1,
     name: "Fish Fry",
     // image: "/images/demo_1.jpg",
-    image: "../../public/images/demo_1.jpg",
+    image: "/fishmart-frontend/images/demo_1.jpg",
     netWeight: "340-390 gms",
     price: 320,
     discountedPrice: 299,
