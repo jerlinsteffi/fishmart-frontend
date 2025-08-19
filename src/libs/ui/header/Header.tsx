@@ -24,6 +24,11 @@ const Header: React.FC = () => {
     router.push("/Orders/orderSummary");
   };
 
+  const handleLogout = () => {
+    setDropdownOpen(false);
+    router.push("/"); // redirect to home
+  };
+
   return (
     <header className={`${styles.headerSection} dark-background sticky-top`}>
       <div className={styles.mainHeader}>
@@ -46,7 +51,6 @@ const Header: React.FC = () => {
 
             <div className={`${styles.headerActions}`}>
               {router.pathname === "/dashboard" ? (
-                // My Account dropdown
                 <div className="position-relative">
                   <button
                     className={styles.headerActionBtn}
@@ -57,23 +61,17 @@ const Header: React.FC = () => {
                   </button>
 
                   {dropdownOpen && (
-                    <div
-                      className="dropdown-menu show"
-                      style={{
-                        position: "absolute",
-                        top: "100%",
-                        right: 0,
-                        display: "block",
-                      }}
-                    >
+                    <div className={styles.dropdownMenu}>
                       <a
-                        className="dropdown-item d-flex align-items-center"
+                        className={styles.dropdownItem}
                         onClick={() => router.push("/profile")}
                       >
                         My Account
                       </a>
+                      <div className={styles.dropdownDivider} />
                       <a
-                        className="dropdown-item d-flex align-items-center"
+                        className={styles.dropdownItem}
+                        onClick={handleLogout}
                       >
                         Logout
                       </a>
@@ -124,3 +122,4 @@ const Header: React.FC = () => {
 };
 
 export default Header;
+
