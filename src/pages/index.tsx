@@ -82,7 +82,7 @@ const products = [
     image: "/images/demo_3.jpg",
     netWeight: "450-550 gms",
     price: 310,
-    discountedPrice: 279,
+    discountedPrice: 280,
     offer: 10,
     inStock: true,
   },
