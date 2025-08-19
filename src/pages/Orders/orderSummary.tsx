@@ -14,8 +14,10 @@ import { Layout } from "@/libs/dashboard-layout";
 import { RemoveIcon } from "@/icons/removeIcon";
 import styles from "@/styles/cart.module.css";
 import { useRouter } from "next/router";
+import { NextPageWithLayout } from "@/types/page";
+import { CART_PAGE } from "@/contants/meta-data";
 
-const OrderSummaryPage = () => {
+const CartPage: NextPageWithLayout = () => {
   const { cart, updateQty, removeFromCart, clearCart } = useCart();
   const [shipping, setShipping] = useState("standard");
   const router = useRouter();
@@ -276,8 +278,9 @@ const OrderSummaryPage = () => {
   );
 };
 
-OrderSummaryPage.getLayout = function getLayout(page: React.ReactNode) {
+CartPage.metadata = CART_PAGE;
+CartPage.getLayout = function getLayout(page) {
   return <Layout>{page}</Layout>;
 };
 
-export default OrderSummaryPage;
+export default CartPage;

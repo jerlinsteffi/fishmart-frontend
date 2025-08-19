@@ -1,0 +1,57 @@
+.section {
+    padding: 40px 0;
+    scroll-margin-top: 78px;
+}
+
+.sectionTitle h2 {
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.cardSection {
+    background-color: var(--surface-color);
+    border-radius: 16px;
+    margin-bottom: 24px;
+    transition: all 0.3s ease;
+}
+
+.infoLabel {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--heading-color);
+}
+
+.formControl {
+    border-radius: 8px;
+    height: 2.5rem;
+    color: var(--default-color);
+    background-color: var(--surface-color);
+    font-size: 15px;
+    border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+}
+
+.formControl:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+.formControl::placeholder {
+    color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+
+.saveChange {
+    background-color: var(--accent-color);
+    border: none;
+    color: var(--contrast-color);
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border-radius: 8px;
+}
+
+.saveChange:hover {
+    background-color: color-mix(in srgb, var(--accent-color), transparent 15%) !important;
+}

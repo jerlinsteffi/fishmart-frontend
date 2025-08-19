@@ -29,3 +29,13 @@ export const ABOUT_PAGE = {
   title: "About",
   description: "About",
 };
+
+export const PROFILE_PAGE = {
+  title: "Profile",
+  description: "Profile",
+};
+
+export const CART_PAGE = {
+  title: "Cart",
+  description: "Cart",
+};
