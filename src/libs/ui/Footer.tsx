@@ -12,12 +12,12 @@ const Footer = () => {
           <Row className="gy-4">
             <Col lg={5} md={12}>
               <div>
-                <a
+                <Link
                   href="/"
                   className={`${styles.logo} d-flex align-items-center mb-md-4 mb-lg-4 mb-0`}
                 >
                   <span className={styles.siteName}>Fish Mart</span>
-                </a>
+                </Link>
                 <p className={`${styles.siteContent} mb-4 d-none d-md-block`}>
                   Vestibulum ante ipsum primis in faucibus orci luctus et
                   ultrices posuere cubilia curae. Donec velit neque auctor sit
