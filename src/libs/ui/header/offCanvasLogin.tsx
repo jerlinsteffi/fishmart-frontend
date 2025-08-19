@@ -20,7 +20,6 @@ const OffCanvasLogin: React.FC<OffCanvasLoginProps> = ({ isOpen, onClose }) => {
         <div className={styles.loginContent}>
           <h2>Login</h2>
 
-          {/* Mobile Number Input */}
           <div className="mb-3">
             <input
               type="tel"
@@ -29,11 +28,13 @@ const OffCanvasLogin: React.FC<OffCanvasLoginProps> = ({ isOpen, onClose }) => {
             />
           </div>
 
-          <button type="submit" className="btn btn-primary w-100">
+          
+          <button type="submit" className={styles.blackButton}>
             Send OTP
           </button>
 
-          <p className="mt-3 text-center">
+        
+          <p className={styles.newUserText}>
             New user? <Link href="/signup">Sign up here</Link>
           </p>
         </div>
@@ -43,9 +44,3 @@ const OffCanvasLogin: React.FC<OffCanvasLoginProps> = ({ isOpen, onClose }) => {
 };
 
 export default OffCanvasLogin;
-
-
-
-
-
-

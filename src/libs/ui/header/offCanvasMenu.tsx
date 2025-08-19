@@ -12,8 +12,8 @@ const OffCanvasMenu: React.FC<OffCanvasMenuProps> = ({ isOpen, onClose }) => {
 
   const menuItems = [
     { name: "Home", path: "/" },
-    { name: "Shop", path: "/shop" },
-    { name: "About", path: "/Menu/about" },
+    /*{ name: "Shop", path: "/shop" },*/
+    { name: "About", path: "/about" },
     { name: "Contact", path: "/contact" }
   ];
 

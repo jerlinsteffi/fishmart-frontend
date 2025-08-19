@@ -53,3 +53,33 @@
   width: 100%;          /* full width of panel */
 }
 
+/* Black Button */
+.blackButton {
+  background-color: #000;   /* black */
+  color: #fff;              /* white text */
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.blackButton:hover {
+  background-color: #333;   /* dark gray on hover */
+}
+
+
+.newUserText {
+  margin-top: 15px;
+  text-align: center;
+  color: #000; 
+  font-size: 14px;
+}
+
+.newUserText a {
+  color: #000;  
+  font-weight: 500;
+  text-decoration: underline;
+}
