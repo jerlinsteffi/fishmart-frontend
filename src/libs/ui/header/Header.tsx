@@ -8,7 +8,8 @@ import OffCanvasMenu from "./offCanvasMenu";
 import { useCart } from "@/context/CartContext";
 import { useRouter } from "next/router";
 import OffCanvasLogin from "./offCanvasLogin";
-import { Container } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
+import Link from "next/link";
 
 const Header: React.FC = () => {
   const [isOpen, setOpen] = useState(false);
@@ -35,11 +36,11 @@ const Header: React.FC = () => {
         <Container>
           <div className={`${styles.headerWrapper} py-3`}>
             <div className={styles.logoSection}>
-              <a href="/" className={styles.logo}>
+              <Link href="/" className={styles.logo}>
                 <h1>
                   <span className={styles.headingColor}>FISH</span> MART
                 </h1>
-              </a>
+              </Link>
 
               <div className={`${styles.location} d-none d-md-block`}>
                 <LocationIcon />
@@ -62,19 +63,20 @@ const Header: React.FC = () => {
 
                   {dropdownOpen && (
                     <div className={styles.dropdownMenu}>
-                      <a
+                      <Link
+                        href="/profile"
                         className={styles.dropdownItem}
-                        onClick={() => router.push("/profile")}
+                        // onClick={() => router.push("/profile")}
                       >
                         My Account
-                      </a>
+                      </Link>
                       <div className={styles.dropdownDivider} />
-                      <a
+                      <Button
                         className={styles.dropdownItem}
                         onClick={handleLogout}
                       >
                         Logout
-                      </a>
+                      </Button>
                     </div>
                   )}
                 </div>
@@ -88,7 +90,10 @@ const Header: React.FC = () => {
                 </button>
               )}
 
-              <a onClick={handleCartClick} className={styles.headerActionBtn}>
+              <Button
+                onClick={handleCartClick}
+                className={styles.headerActionBtn}
+              >
                 {totalItems > 0 ? (
                   <div className={styles.cartBadge}>
                     <CartIcon />
@@ -105,7 +110,7 @@ const Header: React.FC = () => {
                     <span className="ms-1 d-none d-md-inline">Cart</span>
                   </>
                 )}
-              </a>
+              </Button>
 
               <div className={styles.sideMenuBar}>
                 <Hamburger toggled={isOpen} toggle={setOpen} size={24} />
@@ -122,4 +127,3 @@ const Header: React.FC = () => {
 };
 
 export default Header;
-

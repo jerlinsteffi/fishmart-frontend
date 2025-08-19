@@ -1,4 +1,5 @@
 import styles from "@/styles/footer.module.css";
+import Link from "next/link";
 import { Col, Container, Row } from "react-bootstrap";
 
 const Footer = () => {
@@ -31,28 +32,28 @@ const Footer = () => {
                 <h4>Useful Links</h4>
                 <ul className="p-0 m-0">
                   <li className="d-flex align-items-center">
-                    <a
+                    <Link
                       href="/"
                       className="d-flex align-items-center text-decoration-none"
                     >
                       <i className="bi bi-chevron-right"></i> Home
-                    </a>
+                    </Link>
                   </li>
                   <li className="d-flex align-items-center">
-                    <a
+                    <Link
                       href="/about"
                       className="d-flex align-items-center text-decoration-none"
                     >
                       <i className="bi bi-chevron-right"></i> About
-                    </a>
+                    </Link>
                   </li>
                   <li className="d-flex align-items-center">
-                    <a
+                    <Link
                       href="/contact"
                       className="d-flex align-items-center text-decoration-none"
                     >
                       <i className="bi bi-chevron-right"></i> Contact
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </div>
@@ -77,9 +78,12 @@ const Footer = () => {
                     <i className="bi bi-telephone"></i>
                   </div>
                   <div className={styles.contactInfo}>
-                    <a href="tel:+15559876543" className="text-decoration-none">
+                    <Link
+                      href="tel:+15559876543"
+                      className="text-decoration-none"
+                    >
                       <p>+1 (555) 987-6543</p>
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className={`d-flex ${styles.contactItem}`}>
@@ -89,12 +93,12 @@ const Footer = () => {
                     <i className="bi bi-envelope"></i>
                   </div>
                   <div className={styles.contactInfo}>
-                    <a
+                    <Link
                       href="mailto:contact@example.com"
                       className="text-decoration-none"
                     >
                       <p>contact@example.com</p>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
