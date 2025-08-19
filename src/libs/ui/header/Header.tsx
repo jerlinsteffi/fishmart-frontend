@@ -72,7 +72,7 @@ const Header: React.FC = () => {
                       </Link>
                       <div className={styles.dropdownDivider} />
                       <Button
-                        className={styles.dropdownItem}
+                        className={`${styles.dropdownItem} ${styles.logoutButton}`}
                         onClick={handleLogout}
                       >
                         Logout

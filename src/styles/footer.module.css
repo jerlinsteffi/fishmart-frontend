@@ -8,6 +8,7 @@
 
 .logo {
     line-height: 1;
+    text-decoration: none !important;
 }
 
 .siteName {

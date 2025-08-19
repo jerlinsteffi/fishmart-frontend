@@ -255,13 +255,13 @@ const CartPage: NextPageWithLayout = () => {
                     </div>
 
                     <Button
-                      href="/checkout"
+                      onClick={() => router.push("/checkout")}
                       className={`w-100 text-center px-4 mb-3 ${styles.checkoutButton}`}
                     >
                       Proceed to Checkout
                     </Button>
                     <Button
-                      href="/"
+                      onClick={() => router.push("/")}
                       variant="outline-secondary"
                       className={`w-100 ${styles.continueShoppingBtn}`}
                     >

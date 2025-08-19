@@ -195,6 +195,19 @@
   background-color: #f1f1f1;
 }
 
+.logoutButton {
+  width: 100%;
+  background: transparent;
+  border: none;
+  text-align: left;
+  color: #e07844;
+}
+
+.logoutButton:hover {
+  background-color: #f1f1f1;
+  color: #e07844
+}
+
 .dropdownDivider {
   height: 1px;
   background-color: #e0e0e0;
