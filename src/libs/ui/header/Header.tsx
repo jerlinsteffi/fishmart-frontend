@@ -15,6 +15,7 @@ const Header: React.FC = () => {
   const [loginOpen, setLoginOpen] = useState(false);
   const { cart } = useCart();
   const router = useRouter();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const totalItems = cart.reduce((sum, i) => sum + i.qty, 0);
   const totalPrice = cart.reduce((sum, i) => sum + i.price * i.qty, 0);
@@ -44,12 +45,50 @@ const Header: React.FC = () => {
             </div>
 
             <div className={`${styles.headerActions}`}>
-              <button
-                className={styles.headerActionBtn}
-                onClick={() => setLoginOpen(true)}
-              >
-                <ProfileIcon />
-              </button>
+              {router.pathname === "/dashboard" ? (
+                // My Account dropdown
+                <div className="position-relative">
+                  <button
+                    className={styles.headerActionBtn}
+                    onClick={() => setDropdownOpen(!dropdownOpen)}
+                  >
+                    <ProfileIcon />
+                    <span className="ms-1 d-none d-md-inline">My Account</span>
+                  </button>
+
+                  {dropdownOpen && (
+                    <div
+                      className="dropdown-menu show"
+                      style={{
+                        position: "absolute",
+                        top: "100%",
+                        right: 0,
+                        display: "block",
+                      }}
+                    >
+                      <a
+                        className="dropdown-item d-flex align-items-center"
+                        onClick={() => router.push("/profile")}
+                      >
+                        My Account
+                      </a>
+                      <a
+                        className="dropdown-item d-flex align-items-center"
+                      >
+                        Logout
+                      </a>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <button
+                  className={styles.headerActionBtn}
+                  onClick={() => setLoginOpen(true)}
+                >
+                  <ProfileIcon />
+                  <span className="ms-1 d-none d-md-inline">Login</span>
+                </button>
+              )}
 
               <a onClick={handleCartClick} className={styles.headerActionBtn}>
                 {totalItems > 0 ? (
@@ -63,7 +102,10 @@ const Header: React.FC = () => {
                     </div>
                   </div>
                 ) : (
-                  <CartIcon />
+                  <>
+                    <CartIcon />
+                    <span className="ms-1 d-none d-md-inline">Cart</span>
+                  </>
                 )}
               </a>
 

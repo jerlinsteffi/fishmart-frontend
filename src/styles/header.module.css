@@ -49,6 +49,10 @@
   transition: color 0.3s ease;
 }
 
+.headerActionBtn:hover {
+  color: var(--default-color);
+}
+
 .cartBadge {
   display: flex;
   align-items: center;

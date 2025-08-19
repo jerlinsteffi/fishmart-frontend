@@ -12,7 +12,7 @@ import {
   Container,
   Row,
 } from "react-bootstrap";
-import styles from "../styles/home.module.css";
+import styles from "@/styles/home.module.css";
 import { useCart } from "@/context/CartContext";
 
 const products = [
@@ -168,17 +168,10 @@ const Home: NextPageWithLayout = () => {
                 alt="Banner 1"
               />
               <Carousel.Caption className="text-center d-flex flex-column justify-content-center align-items-center h-100 px-3">
-                <h1 className="text-white fw-bold display-5 d-none d-md-block">
+                <h1 className="text-white fw-bold display-5">
                   Welcome to SeaDelights!
                 </h1>
-                <h2 className="text-white fw-bold h4 d-block d-md-none">
-                  Welcome to SeaDelights!
-                </h2>
-                <p className="text-light d-none d-md-block lead">
-                  Authentic cooked seafood dishes delivered fresh to your
-                  doorstep.
-                </p>
-                <p className="text-light d-block d-md-none small">
+                <p className="text-light">
                   Authentic cooked seafood dishes delivered fresh.
                 </p>
               </Carousel.Caption>
@@ -192,17 +185,10 @@ const Home: NextPageWithLayout = () => {
                 alt="Banner 2"
               />
               <Carousel.Caption className="text-center d-flex flex-column justify-content-center align-items-center h-100 px-3">
-                <h1 className="text-white fw-bold display-5 d-none d-md-block">
+                <h1 className="text-white fw-bold display-5">
                   Delicious Fish Curry
                 </h1>
-                <h2 className="text-white fw-bold h4 d-block d-md-none">
-                  Delicious Fish Curry
-                </h2>
-                <p className="text-light d-none d-md-block lead">
-                  Authentic flavors straight from the Goan coast, cooked to
-                  perfection.
-                </p>
-                <p className="text-light d-block d-md-none small">
+                <p className="text-light">
                   Goan coastal flavors, cooked to perfection.
                 </p>
               </Carousel.Caption>
