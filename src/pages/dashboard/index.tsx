@@ -12,7 +12,7 @@ import {
   Container,
   Row,
 } from "react-bootstrap";
-import styles from "../styles/home.module.css";
+import styles from "@/styles/home.module.css";
 import { useCart } from "@/context/CartContext";
 
 const products = [
