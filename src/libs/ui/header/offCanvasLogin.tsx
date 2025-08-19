@@ -32,11 +32,6 @@ const OffCanvasLogin: React.FC<OffCanvasLoginProps> = ({ isOpen, onClose }) => {
           <button type="submit" className={styles.blackButton}>
             Send OTP
           </button>
-
-        
-          <p className={styles.newUserText}>
-            New user? <Link href="/signup">Sign up here</Link>
-          </p>
         </div>
       </div>
     </div>

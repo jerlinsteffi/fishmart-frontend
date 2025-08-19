@@ -1,7 +1,101 @@
+.section {
+  padding: 40px 0;
+  scroll-margin-top: 78px;
+}
+
+.sectionTitle h2 {
+  font-size: 32px;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.continueShoppingBtn {
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 8px;
+}
+
+.cardSection {
+  background-color: var(--surface-color);
+  border-radius: 16px;
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+}
+
+.cardHeader {
+  border-top-left-radius: 1rem !important;
+  border-top-right-radius: 1rem !important;
+  padding: 20px 24px;
+  background-color: color-mix(in srgb, var(--surface-color), var(--background-color) 30%);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
+}
+
+.cardHeader h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--heading-color);
+}
+
+.checkoutButton {
+  background-color: var(--accent-color);
+  border: none;
+  color: var(--contrast-color);
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 8px;
+}
+
+.checkoutButton:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 15%);
+}
+
+.formControl {
+  border-radius: 8px;
+  height: 2.5rem;
+  color: var(--default-color);
+  background-color: var(--surface-color);
+  font-size: 15px;
+  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
+}
+
+.formControl:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.25rem color-mix(in srgb, var(--accent-color), transparent 90%);
+}
+
+.formControl::placeholder {
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+}
+
+.promoButton:hover {
+  background-color: color-mix(in srgb, var(--accent-color), transparent 15%);
+}
+
+.promoButton {
+  background-color: var(--accent-color);
+  border: none;
+  color: var(--contrast-color);
+  letter-spacing: 1px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
+
 /* PRODUCT IMAGE */
 .itemImage {
-  width: 120px;   /* Increased from 60px → 120px */
-  height: 120px;  /* Increased from 60px → 120px */
+  width: 120px;
+  /* Increased from 60px → 120px */
+  height: 120px;
+  /* Increased from 60px → 120px */
   object-fit: cover;
   border-radius: 8px;
   transition: transform 0.2s ease-in-out;
@@ -22,9 +116,11 @@
   color: #555;
   cursor: pointer;
 }
+
 .deleteBtn:hover {
   color: #d9534f;
 }
+
 .deleteBtn svg {
   width: 14px;
   height: 14px;
@@ -35,7 +131,8 @@
 .qtyBtn {
   background: #ffffff;
   border: 1px solid #e07844;
-  width: 28px;   /* slightly bigger */
+  width: 28px;
+  /* slightly bigger */
   height: 28px;
   display: flex;
   justify-content: center;
@@ -44,12 +141,14 @@
   font-size: 14px;
   font-weight: bold;
 }
+
 .qtyBtn:hover {
   background: #e0e0e0;
 }
 
 .qtyInput {
-  width: 42px;   /* slightly wider */
+  width: 42px;
+  /* slightly wider */
   height: 28px;
   border: 1px solid #e07844;
   margin: 0 4px;
@@ -59,19 +158,9 @@
   /* Remove arrows from number input */
   -moz-appearance: textfield;
 }
+
 .qtyInput::-webkit-outer-spin-button,
 .qtyInput::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
-}
-
-/* CHECKOUT BUTTON */
-.checkoutBtn {
-  background-color: #e07844 !important;
-  border-color: #e07844 !important;
-  color: #fff !important;
-}
-.checkoutBtn:hover {
-  background-color: #cf6b3a !important;
-  border-color: #cf6b3a !important;
 }

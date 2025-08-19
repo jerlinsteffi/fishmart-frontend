@@ -53,7 +53,7 @@
   width: 100%;          /* full width of panel */
 }
 
-/* Black Button */
+
 .blackButton {
   background-color: #000;   /* black */
   color: #fff;              /* white text */
@@ -71,15 +71,3 @@
 }
 
 
-.newUserText {
-  margin-top: 15px;
-  text-align: center;
-  color: #000; 
-  font-size: 14px;
-}
-
-.newUserText a {
-  color: #000;  
-  font-weight: 500;
-  text-decoration: underline;
-}
