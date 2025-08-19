@@ -40,18 +40,18 @@ const OffCanvasLogin: React.FC<OffCanvasLoginProps> = ({ isOpen, onClose }) => {
     }
   };
 
-  // Verify OTP on Submit button
+ 
   const handleVerifyOtp = () => {
     if (otp.join("") === "1234") {
       setError("");
       onClose();
-      router.push("/"); // redirect to home page
+      router.push("/dashboard"); 
     } else {
       setError("Enter correct OTP");
     }
   };
 
-  // Resend OTP resets everything
+ 
   const handleResendOtp = () => {
     setPhone("");
     setOtp(["", "", "", ""]);
