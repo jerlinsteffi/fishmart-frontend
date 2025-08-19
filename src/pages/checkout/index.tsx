@@ -23,14 +23,16 @@ const CheckoutPage: NextPageWithLayout = () => {
       name: "Fish Curry Meal",
       quantity: 1,
       price: 299.0,
-      image: "/images/demo_3.jpg",
+      // image: "/images/demo_3.jpg",
+      image: "/fishmart-frontend/images/demo_3.jpg",
     },
     {
       id: 2,
       name: "Fried Pomfret",
       quantity: 2,
       price: 199.0,
-      image: "/images/demo_2.jpg",
+      // image: "/images/demo_2.jpg",
+      image: "/fishmart-frontend/images/demo_2.jpg",
     },
   ];
 

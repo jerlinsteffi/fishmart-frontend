@@ -15,7 +15,8 @@ const ProductDetailPage: NextPageWithLayout = () => {
   const product = {
     id: productId,
     name: "Mangur Fish Curry",
-    image: "/images/demo_3.jpg",
+    image: "/fishmart-frontend/images/demo_3.jpg",
+    // image: "/images/demo_3.jpg",
     netWeight: "600-840 gms",
     price: 299,
     discountedPrice: 239,
@@ -138,21 +139,28 @@ const ProductDetailPage: NextPageWithLayout = () => {
 
             {/* Details Section */}
             <div className="mb-3">
-              <h6 className="fw-bold text-uppercase">DETAILS ABOUT THIS MEAL</h6>
+              <h6 className="fw-bold text-uppercase">
+                DETAILS ABOUT THIS MEAL
+              </h6>
               <p>
-                Experience the authentic flavors of India with our Mangur Fish Curry. Made
-                with fresh catfish and simmered in a blend of aromatic spices, this curry
-                delivers a perfect balance of tangy, spicy, and savory notes. Infused with
-                the subtle richness of mustard oil and a hint of tamarind, every bite
-                bursts with traditional South Indian flavors. Ideal to pair with steamed
-                rice or your favorite bread, this dish promises a delightful seafood.
+                Experience the authentic flavors of India with our Mangur Fish
+                Curry. Made with fresh catfish and simmered in a blend of
+                aromatic spices, this curry delivers a perfect balance of tangy,
+                spicy, and savory notes. Infused with the subtle richness of
+                mustard oil and a hint of tamarind, every bite bursts with
+                traditional South Indian flavors. Ideal to pair with steamed
+                rice or your favorite bread, this dish promises a delightful
+                seafood.
               </p>
             </div>
 
             {/* Ingredients Section */}
             <div className="mb-3">
               <h6 className="fw-bold text-uppercase">INGREDIENTS</h6>
-              <p>Mangur (catfish), onion, garlic, tomatoes, turmeric, red chili powder, tamarind.</p>
+              <p>
+                Mangur (catfish), onion, garlic, tomatoes, turmeric, red chili
+                powder, tamarind.
+              </p>
             </div>
           </Col>
         </Row>

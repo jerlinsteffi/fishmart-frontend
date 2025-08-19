@@ -14,7 +14,6 @@ import {
 } from "react-bootstrap";
 import styles from "../styles/home.module.css";
 import { useCart } from "@/context/CartContext";
-// import image3 from "../../public/images"
 
 const products = [
   {
@@ -32,7 +31,7 @@ const products = [
     id: 2,
     name: "Fish Curry",
     // image: "/images/demo_2.jpg",
-    image: "../../public/images/demo_2.jpg",
+    image: "/fishmart-frontend/images/demo_2.jpg",
     netWeight: "340-390 gms",
     price: 299,
     discountedPrice: 280,
@@ -43,7 +42,7 @@ const products = [
     id: 3,
     name: "Mangur fish curry",
     // image: "images/demo_3.jpg",
-    image: "../../public/images/demo_3.jpg",
+    image: "/fishmart-frontend/images/demo_3.jpg",
     netWeight: "340-390 gms",
     price: 299,
     discountedPrice: 249,
@@ -53,7 +52,8 @@ const products = [
   {
     id: 4,
     name: "Chettinad Fish Curry",
-    image: "/images/demo_4.avif",
+    // image: "/images/demo_4.avif",
+    image: "/fishmart-frontend/images/demo_4.avif",
     netWeight: "480-500 gms",
     price: 600,
     discountedPrice: 579,
@@ -63,7 +63,8 @@ const products = [
   {
     id: 5,
     name: "Kerala Meen Moilee",
-    image: "/images/demo_3.jpg",
+    // image: "/images/demo_3.jpg",
+    image: "/fishmart-frontend/images/demo_3.jpg",
     netWeight: "290-350 gms",
     price: 349,
     discountedPrice: 329,
@@ -73,7 +74,8 @@ const products = [
   {
     id: 6,
     name: "Fish Masala Curry",
-    image: "images/demo_4.avif",
+    // image: "images/demo_4.avif",
+    image: "/fishmart-frontend/images/demo_4.avif",
     netWeight: "340 gms",
     price: 299,
     discountedPrice: 289,
@@ -83,7 +85,8 @@ const products = [
   {
     id: 7,
     name: "Fish Curry",
-    image: "/images/demo_3.jpg",
+    // image: "/images/demo_3.jpg",
+    image: "/fishmart-frontend/images/demo_3.jpg",
     netWeight: "450-550 gms",
     price: 310,
     discountedPrice: 280,
@@ -93,7 +96,8 @@ const products = [
   {
     id: 8,
     name: "Fish Curry",
-    image: "/images/demo_2.jpg",
+    // image: "/images/demo_2.jpg",
+    image: "/fishmart-frontend/images/demo_2.jpg",
     netWeight: "650-750 gms",
     price: 299,
     discountedPrice: 259,
@@ -103,7 +107,8 @@ const products = [
   {
     id: 9,
     name: "Masala Fish Curry",
-    image: "images/demo_1.jpg",
+    // image: "images/demo_1.jpg",
+    image: "/fishmart-frontend/images/demo_1.jpg",
     netWeight: "750-850 gms",
     price: 299,
     discountedPrice: 239,
@@ -168,21 +173,13 @@ const Home: NextPageWithLayout = () => {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src="/images/demo.jpg"
+                // src="/images/demo.jpg"
+                src="/fishmart-frontend/images/demo.jpg"
                 alt="Banner 1"
               />
               <Carousel.Caption className="text-center d-flex flex-column justify-content-center align-items-center h-100 px-3">
-                <h1 className="text-white fw-bold display-5 d-none d-md-block">
-                  Welcome to SeaDelights!
-                </h1>
-                <h2 className="text-white fw-bold h4 d-block d-md-none">
-                  Welcome to SeaDelights!
-                </h2>
-                <p className="text-light d-none d-md-block lead">
-                  Authentic cooked seafood dishes delivered fresh to your
-                  doorstep.
-                </p>
-                <p className="text-light d-block d-md-none small">
+                <h1 className="text-white fw-bold">Welcome to SeaDelights!</h1>
+                <p className="text-light">
                   Authentic cooked seafood dishes delivered fresh.
                 </p>
               </Carousel.Caption>
@@ -192,21 +189,13 @@ const Home: NextPageWithLayout = () => {
             <Carousel.Item>
               <img
                 className="d-block w-100"
-                src="/images/demo.jpg"
+                // src="/images/demo.jpg"
+                src="/fishmart-frontend/images/demo.jpg"
                 alt="Banner 2"
               />
               <Carousel.Caption className="text-center d-flex flex-column justify-content-center align-items-center h-100 px-3">
-                <h1 className="text-white fw-bold display-5 d-none d-md-block">
-                  Delicious Fish Curry
-                </h1>
-                <h2 className="text-white fw-bold h4 d-block d-md-none">
-                  Delicious Fish Curry
-                </h2>
-                <p className="text-light d-none d-md-block lead">
-                  Authentic flavors straight from the Goan coast, cooked to
-                  perfection.
-                </p>
-                <p className="text-light d-block d-md-none small">
+                <h1 className="text-white fw-bold">Delicious Fish Curry</h1>
+                <p className="text-light">
                   Goan coastal flavors, cooked to perfection.
                 </p>
               </Carousel.Caption>
