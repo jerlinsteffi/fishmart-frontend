@@ -92,7 +92,7 @@ const Header: React.FC = () => {
 
               <Button
                 onClick={handleCartClick}
-                className={styles.headerActionBtn}
+                className={`${styles.headerActionBtn} ${styles.cartButton}`}
               >
                 {totalItems > 0 ? (
                   <div className={styles.cartBadge}>

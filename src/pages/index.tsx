@@ -14,12 +14,14 @@ import {
 } from "react-bootstrap";
 import styles from "../styles/home.module.css";
 import { useCart } from "@/context/CartContext";
+// import image3 from "../../public/images"
 
 const products = [
   {
     id: 1,
     name: "Fish Fry",
-    image: "/images/demo_1.jpg",
+    // image: "/images/demo_1.jpg",
+    image: "../../public/images/demo_1.jpg",
     netWeight: "340-390 gms",
     price: 320,
     discountedPrice: 299,
@@ -29,7 +31,8 @@ const products = [
   {
     id: 2,
     name: "Fish Curry",
-    image: "/images/demo_2.jpg",
+    // image: "/images/demo_2.jpg",
+    image: "../../public/images/demo_2.jpg",
     netWeight: "340-390 gms",
     price: 299,
     discountedPrice: 280,
@@ -39,7 +42,8 @@ const products = [
   {
     id: 3,
     name: "Mangur fish curry",
-    image: "images/demo_3.jpg",
+    // image: "images/demo_3.jpg",
+    image: "../../public/images/demo_3.jpg",
     netWeight: "340-390 gms",
     price: 299,
     discountedPrice: 249,

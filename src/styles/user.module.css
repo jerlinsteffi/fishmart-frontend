@@ -37,50 +37,65 @@
 }
 
 .loginPanel.show {
-  right: 0; 
+  right: 0;
+}
+
+
+@media (max-width: 767px) {
+  .loginPanel {
+    width: 90vw;
+  }
+}
+
+@media (max-width: 1023px) {
+  .loginPanel {
+    width: 90vw;
+    max-width: 350px;
+  }
 }
 
 /* Login content */
 .loginContent {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; 
+  justify-content: flex-start;
   gap: 15px;
-  background: #f8efeb; 
+  background: #f8efeb;
   padding: 20px;
   border-radius: 8px;
 
-  max-height: 600px;  
+  max-height: 600px;
   width: 100%;
 }
 
 /* Login heading */
 .loginContent h2 {
-  color: #000;          
-  margin-bottom: 20px;  
+  color: #000;
+  margin-bottom: 20px;
   font-weight: 600;
-  text-align: left;    
+  text-align: left;
 }
 
 /* Black Send OTP Button */
 .blackButton {
   background-color: #000;
   color: #fff;
-  width: 50%;          /* or any width you want */
+  width: 50%;
+  /* or any width you want */
   padding: 10px;
   border: none;
   border-radius: 6px;
   font-weight: 350;
   cursor: pointer;
   transition: background 0.3s ease;
-  display: block;      
-  margin: 0 auto;      
-  text-align: center;  
+  display: block;
+  margin: 0 auto;
+  text-align: center;
 }
 
 
 .blackButton:hover {
-  background-color: #333; 
+  background-color: #333;
 }
 
 .otpContainer {
@@ -109,7 +124,7 @@
 .resendButton {
   background: none;
   border: none;
-  color:#e07844;
+  color: #e07844;
   margin-top: 10px;
   cursor: pointer;
   font-size: 14px;
@@ -117,7 +132,7 @@
 }
 
 .error {
-  color:#e07844;       
-  font-size: 14px;  
-  margin-top: 8px;  
+  color: #e07844;
+  font-size: 14px;
+  margin-top: 8px;
 }

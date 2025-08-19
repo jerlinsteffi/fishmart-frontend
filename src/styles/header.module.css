@@ -49,9 +49,9 @@
   transition: color 0.3s ease;
 }
 
-.headerActionBtn:hover {
+.cartButton:hover {
   color: var(--default-color);
-  background-color: black;
+  background-color: black !important;
 }
 
 .cartBadge {

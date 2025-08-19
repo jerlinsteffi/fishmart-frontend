@@ -55,7 +55,7 @@ const CartPage: NextPageWithLayout = () => {
             <h3 className="mb-4">Your cart is empty</h3>
             <Link
               href="/"
-              className={`${styles.continueShoppingBtn} btn btn-success`}
+              className={`${styles.continueShoppingBtn} text-white btn btn-success`}
             >
               Continue Shopping
             </Link>
